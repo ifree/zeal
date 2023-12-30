@@ -72,10 +72,12 @@ void UrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 
 void UrlRequestInterceptor::blockRequest(QWebEngineUrlRequestInfo &info)
 {
+#if 0 // resume external resource access (temp solution
     qCDebug(log, "Blocked request: %s '%s' (resource_type=%d, navigation_type=%d).",
             info.requestMethod().data(),
             qPrintable(info.requestUrl().toString()),
             info.resourceType(), info.navigationType());
 
     info.block(true);
+#endif    
 }
