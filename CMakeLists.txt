@@ -34,17 +34,17 @@ if(NOT ZEAL_RELEASE_BUILD)
     message(NOTICE "Building unreleased code. Proceed at your own risk!")
 
     # TODO: Add support for metadata passed from env, e.g. aur, appimage, etc.
-    include(GetVersionFromGit)
-    if(Zeal_GIT_VERSION_SHA)
-        # Extra check in case we forgot to bump version in project() directive.
-        if(NOT PROJECT_VERSION_PATCH EQUAL Zeal_GIT_VERSION_PATCH_NEXT)
-            message(WARNING "Incorrect patch version! Forgot to bump?")
-        endif()
-
-        set(ZEAL_VERSION_SUFFIX "-dev.${Zeal_GIT_VERSION_AHEAD}+${Zeal_GIT_VERSION_SHA}")
-    else()
+    #include(GetVersionFromGit)
+    #if(Zeal_GIT_VERSION_SHA)
+    #    # Extra check in case we forgot to bump version in project() directive.
+    #    if(NOT PROJECT_VERSION_PATCH EQUAL Zeal_GIT_VERSION_PATCH_NEXT)
+    #        message(WARNING "Incorrect patch version! Forgot to bump?")
+    #    endif()
+#
+    #    set(ZEAL_VERSION_SUFFIX "-dev.${Zeal_GIT_VERSION_AHEAD}+${Zeal_GIT_VERSION_SHA}")
+   # else()
         set(ZEAL_VERSION_SUFFIX "-dev")
-    endif()
+    #endif()
 endif()
 
 set(ZEAL_VERSION_FULL "${Zeal_VERSION}${ZEAL_VERSION_SUFFIX}")
